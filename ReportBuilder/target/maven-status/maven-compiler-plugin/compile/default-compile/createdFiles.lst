@@ -1,0 +1,12 @@
+ru\mmsv\report\photo\Image.class
+ru\mmsv\report\utils\ExcelHelper.class
+ru\mmsv\report\photo\PhotoReport$1.class
+ru\mmsv\report\discovery\Discovery.class
+ru\mmsv\report\Point.class
+ru\mmsv\report\discovery\Tags.class
+ru\mmsv\report\utils\ImageHelper.class
+ru\mmsv\report\Report.class
+ru\mmsv\report\photo\PhotoReport.class
+ru\mmsv\report\Main.class
+ru\mmsv\report\photo\Constants.class
+ru\mmsv\report\utils\DiscoveryHelper.class
