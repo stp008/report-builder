@@ -39,5 +39,10 @@ public class Point {
 	public void setStartRow(int startRow) {
 		this.startRow = startRow;
 	}
+	
+	@Override
+	public String toString() {
+		return "Row: " + thresHoldrow + ", Column: " + thresHoldcolumn + ", StartRow: " + startRow + ", StartColumn: " + startColumn;
+	}
 
 }

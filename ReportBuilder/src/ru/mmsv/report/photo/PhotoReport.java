@@ -69,8 +69,7 @@ public class PhotoReport implements Report{
 		}
 		nextPoint = insertReview(wb, sheet, Constants.ELECTRICITY, new Point(1, nextPoint.getRow()), Constants.JPEG_FORMAT);
 		nextPoint = insertReview(wb, sheet, Constants.GROUNDING, new Point(1, nextPoint.getRow()), Constants.JPEG_FORMAT);
-		if(reviews.containsKey(Constants.SIGNS) && !(reviews.get(Constants.SIGNS).isEmpty()))
-			nextPoint = insertReview(wb, sheet, Constants.SIGNS, new Point(1, nextPoint.getRow()), Constants.JPEG_FORMAT);
+		nextPoint = insertReview(wb, sheet, Constants.SIGNS, new Point(1, nextPoint.getRow()), Constants.JPEG_FORMAT);
 		nextPoint = insertReview(wb, sheet, Constants.LTE, new Point(1, nextPoint.getRow()), Workbook.PICTURE_TYPE_PNG);
 		nextPoint = insertReview(wb, sheet, Constants.SATELLITE, new Point(nextPoint.getColumn()+2, nextPoint.getStartRow()-3), Workbook.PICTURE_TYPE_PNG);
 		ExcelHelper.writeToWorkbook(wb, name.getPath());
@@ -126,11 +125,14 @@ public class PhotoReport implements Report{
 	}
 	
 	private Point insertReview(Workbook wb, Sheet sheet, String name, Point point, int format) {
+		if(reviews.containsKey(name) && !(reviews.get(name).isEmpty())) {
 			int row = point.getRow();
 			ExcelHelper.insertCell(sheet, point.getColumn(), row = row+2, name);
 			logger.info("Current processing tag: " + name);
 			Point thresholdPoint = ImageHelper.insertImagesInARow(wb, sheet, reviews.get(name), new Point(point.getColumn(), ++row), format);
 			return thresholdPoint;
+		}
+		return point;
 	}
 	
 }
